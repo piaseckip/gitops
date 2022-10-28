@@ -13,4 +13,4 @@ spec:
     path: ./nginx-ingress
   destination:
     server: https://kubernetes.default.svc
-    namespace: guestbook
+    namespace: default
