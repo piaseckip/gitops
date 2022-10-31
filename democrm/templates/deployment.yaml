@@ -34,6 +34,16 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
+          - name: DBUSER
+            valueFrom: 
+              secretKeyRef:
+                name: {{ .Values.secret }}
+                key: DBUSER
+          - name: DBPASS
+            valueFrom: 
+              secretKeyRef:
+                name: {{ .Values.secret }}
+                key: DBPASS
           - name: databasePort
             valueFrom: 
               configMapKeyRef:
@@ -46,8 +56,8 @@ spec:
                 key: databaseHost
           - name: MONGODB_URI
             valueFrom: 
-              secretKeyRef:
-                name: {{ .Values.secret }}
+              configMapKeyRef:
+                name: {{ .Values.config }}
                 key: MONGODB_URI
           - name: PERSISTENCE
             valueFrom: 
