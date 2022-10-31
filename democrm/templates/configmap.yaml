@@ -6,6 +6,7 @@ data:
 # property-like keys; each key maps to a simple value
   databasePort: "27017"
   databaseHost: "{{ .Release.Name }}-mongodb-headless"
+  MONGODBURI: "mongodb://user:pass@{{ .Release.Name }}-mongodb-headless:27017"
   LOG_LEVEL: "info"
   PERSISTENCE: "true"
 #file-like keys
