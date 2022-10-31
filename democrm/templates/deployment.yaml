@@ -44,11 +44,11 @@ spec:
               configMapKeyRef:
                 name: {{ .Values.config }}
                 key: databaseHost
-          - name: MONGODBURI
+          - name: MONGODB_URI
             valueFrom: 
               configMapKeyRef:
                 name: {{ .Values.config }}
-                key: MONGODBURI
+                key: MONGODB_URI
           - name: PERSISTENCE
             valueFrom: 
               configMapKeyRef:
