@@ -29,7 +29,7 @@ spec:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
-          command: ["export"]
+          command: ["setenv"]
           args: ["MONGODBURI=mongodb://$DBUSER:$DBPASS@$RELEASE-mongodb-headless:27017"]
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
