@@ -46,8 +46,8 @@ spec:
                 key: databaseHost
           - name: MONGODB_URI
             valueFrom: 
-              configMapKeyRef:
-                name: {{ .Values.config }}
+              secretKeyRef:
+                name: {{ .Values.secret }}
                 key: MONGODB_URI
           - name: PERSISTENCE
             valueFrom: 
