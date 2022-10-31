@@ -6,7 +6,8 @@ data:
 # property-like keys; each key maps to a simple value
   databasePort: "27017"
   databaseHost: "{{ .Release.Name }}-mongodb-headless"
-  MONGODB_URI: mongodb://$DBUSER:$DBPASS@{{ .Release.Name }}-mongodb-headless:27017
+  # MONGODB_URI: mongodb://$DBUSER:$DBPASS@{{ .Release.Name }}-mongodb-headless:27017
+  RELEASE: "{{ .Release.Name }}"
   LOG_LEVEL: "info"
   PERSISTENCE: "true"
 #file-like keys

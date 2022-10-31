@@ -29,6 +29,8 @@ spec:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
+          command: ["export"]
+          args: ["MONGODBURI=mongodb://$DBUSER:$DBPASS@$RELEASE-mongodb-headless:27017"]
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
@@ -54,11 +56,11 @@ spec:
               configMapKeyRef:
                 name: {{ .Values.config }}
                 key: databaseHost
-          - name: MONGODB_URI
+          - name: RELEASE
             valueFrom: 
               configMapKeyRef:
                 name: {{ .Values.config }}
-                key: MONGODB_URI
+                key: RELEASE
           - name: PERSISTENCE
             valueFrom: 
               configMapKeyRef:
