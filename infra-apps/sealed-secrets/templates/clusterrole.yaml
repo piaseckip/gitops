@@ -16,7 +16,12 @@ rules:
       - bitnami.com
     resources:
       - sealedsecrets
+      - secrets
     verbs:
+      - list
+      - create
+      - update
+      - delete
       - get
       - list
       - watch
@@ -31,6 +36,7 @@ rules:
     resources:
       - secrets
     verbs:
+      - list
       - get
       - create
       - update
@@ -40,6 +46,7 @@ rules:
     resources:
       - events
     verbs:
+      - list
       - create
       - patch
   {{- if .Values.rbac.unsealer.rules }}
