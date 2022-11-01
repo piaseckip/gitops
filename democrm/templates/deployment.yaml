@@ -34,8 +34,6 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
-          - name: SEALED_SECRETS_UPDATE_STATUS
-            value: "1"
           - name: databasePort
             valueFrom: 
               configMapKeyRef:
