@@ -453,6 +453,7 @@ ingress:
 ## RBAC configuration
 ##
 rbac:
+  enabled: false
   ## @param rbac.create Specifies whether RBAC resources should be created
   ##
   create: true
