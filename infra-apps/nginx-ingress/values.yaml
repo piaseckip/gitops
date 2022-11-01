@@ -252,7 +252,7 @@ controller:
     extraLabels: {}
 
     ## The static IP address for the load balancer. Requires controller.service.type set to LoadBalancer. The cloud provider must support this feature.
-    loadBalancerIP: "34.118.108.12"
+    loadBalancerIP: "34.118.108.10"
 
     ## The list of external IPs for the Ingress Controller service.
     externalIPs: []
