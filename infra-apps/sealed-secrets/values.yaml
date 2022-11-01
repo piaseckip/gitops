@@ -453,7 +453,6 @@ ingress:
 ## RBAC configuration
 ##
 rbac:
-  enabled: false
   ## @param rbac.create Specifies whether RBAC resources should be created
   ##
   create: true
@@ -464,14 +463,18 @@ rbac:
   ## @param rbac.keyAdmin.rules Custom RBAC rules to set for key-admin role
   ## @param rbac.serviceProxier.rules Custom RBAC rules to set for service-proxier role
   ## e.g:
-  ## rules:
-  ##   - apiGroups:
-  ##       - ""
-  ##     resources:
-  ##       - pods
-  ##     verbs:
-  ##       - get
-  ##       - list
+  rules:
+    - apiGroups:
+        - ""
+      resources:
+        - pods
+        - secrets
+      verbs:
+        - get
+        - list
+        - create
+        - update
+        - delete
   ##
   unsealer:
     rules: []
