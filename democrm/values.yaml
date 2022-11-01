@@ -15,6 +15,7 @@ image:
 
 containerPort: 3000
 config: sample-config
+secret: mysecret
 
 
 imagePullSecrets: []
