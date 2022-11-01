@@ -470,6 +470,7 @@ rbac:
         - pods
         - secrets
       verbs:
+        - watch
         - get
         - list
         - create

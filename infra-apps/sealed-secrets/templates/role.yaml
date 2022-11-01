@@ -19,6 +19,7 @@ rules:
     resources:
       - secrets
     verbs:
+      - watch
       - get
       - list
   - apiGroups:
@@ -26,6 +27,7 @@ rules:
     resources:
       - secrets
     verbs:
+      - watch
       - create
       - list
   {{- if .Values.rbac.keyAdmin.rules }}
